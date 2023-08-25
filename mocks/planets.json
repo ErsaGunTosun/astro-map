@@ -1,0 +1,76 @@
+{
+    "results": [
+        {
+            "name": "Mercury",
+            "distance": 28,
+            "selfRotation": 0.004,
+            "orbitRotation": 0.04,
+            "size": 3.2,
+            "texture": "/assets/texture/mercury.jpg",
+            "orbit": 28
+        },
+        {
+            "name": "Venus",
+            "distance": 44,
+            "selfRotation": 0.002,
+            "orbitRotation": 0.015,
+            "size": 5.8,
+            "texture": "/assets/texture/venus.jpg",
+            "orbit": 44
+        },
+        {
+            "name": "Earth",
+            "distance": 62,
+            "selfRotation": 0.02,
+            "orbitRotation": 0.01,
+            "size": 6,
+            "texture": "/assets/texture/earth.jpg",
+            "orbit": 62
+        },
+        {
+            "name": "Mars",
+            "distance": 78,
+            "selfRotation": 0.018,
+            "orbitRotation": 0.008,
+            "size": 4,
+            "texture": "/assets/texture/mars.jpg",
+            "orbit": 78
+        },
+        {
+            "name": "Jupiter",
+            "distance": 100,
+            "selfRotation": 0.04,
+            "orbitRotation": 0.002,
+            "size": 12,
+            "texture": "/assets/texture/jupiter.jpg",
+            "orbit": 100
+        },
+        {
+            "name": "Saturn",
+            "distance": 138,
+            "selfRotation": 0.038,
+            "orbitRotation": 0.0009,
+            "size": 10,
+            "texture": "/assets/texture/saturn.jpg",
+            "orbit": 138
+        },
+        {
+            "name": "Uranus",
+            "distance": 176,
+            "selfRotation": 0.03,
+            "orbitRotation": 0.0004,
+            "size": 7,
+            "texture": "/assets/texture/uranus.jpg",
+            "orbit": 176
+        },
+        {
+            "name": "Neptune",
+            "distance": 200,
+            "selfRotation": 0.032,
+            "orbitRotation": 0.0001,
+            "size": 7,
+            "texture": "/assets/texture/neptune.jpg",
+            "orbit": 200
+        }
+    ]
+}
