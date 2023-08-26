@@ -1,17 +1,22 @@
 import { TextureLoader } from 'three/src/loaders/TextureLoader'
-import { useFrame, useLoader } from "@react-three/fiber";
+import { useFrame, useLoader, useThree } from "@react-three/fiber";
 import { useRef, useState } from 'react'
 import { Text } from "@react-three/drei";
 
-export default function Planet({ name, size, orbitRotation, selftRotation, distance, texture }) {
-    const planetRef = useRef();
+export default function Planet({ name, size, orbitRotation, selftRotation, distance, texture, textDistance }) {
+    const [textPosition, setTextPosition] = useState([0, 0, 0]);
+    const [textRotation, setTextRotation] = useState([0, 0, 0]);
     const [show, setShow] = useState(false);
-
+    const planetRef = useRef();
+    const textRef = useRef();
+    const { camera } = useThree();
     useFrame((state, delta) => {
         const elapsedTime = state.clock.getElapsedTime();
         planetRef.current.position.x = Math.cos(orbitRotation * elapsedTime) * distance;
         planetRef.current.position.z = Math.sin(orbitRotation * elapsedTime) * distance;
         planetRef.current.rotation.y += (selftRotation);
+        setTextRotation([camera.rotation.x, camera.rotation.y, camera.rotation.z])
+        setTextPosition([planetRef.current.position.x, planetRef.current.position.y + textDistance, planetRef.current.position.z])
     });
 
     const showText = () => {
@@ -36,12 +41,14 @@ export default function Planet({ name, size, orbitRotation, selftRotation, dista
                 show
                     ?
                     <Text
-                        rota
-                        position={[planetRef.current.position.x, planetRef.current.position.y + 20, planetRef.current.position.z]}
-                        fontSize={2}
+                        rotation={textRotation}
+                        position={textPosition}
+                        fontSize={2.3}
                         color="white"
                         anchorX="center"
                         anchorY="top"
+                        outlineWidth={0.2}
+                        outlineColor="black"
                     >
                         {name}
                     </Text>
