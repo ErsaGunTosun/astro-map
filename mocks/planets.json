@@ -7,7 +7,8 @@
             "orbitRotation": 0.04,
             "size": 3.2,
             "texture": "/assets/texture/mercury.jpg",
-            "orbit": 28
+            "orbit": 28,
+            "textDistance": 7
         },
         {
             "name": "Venus",
@@ -16,7 +17,8 @@
             "orbitRotation": 0.015,
             "size": 5.8,
             "texture": "/assets/texture/venus.jpg",
-            "orbit": 44
+            "orbit": 44,
+            "textDistance":9.6
         },
         {
             "name": "Earth",
@@ -25,7 +27,8 @@
             "orbitRotation": 0.01,
             "size": 6,
             "texture": "/assets/texture/earth.jpg",
-            "orbit": 62
+            "orbit": 62,
+            "textDistance":9.8
         },
         {
             "name": "Mars",
@@ -34,7 +37,8 @@
             "orbitRotation": 0.008,
             "size": 4,
             "texture": "/assets/texture/mars.jpg",
-            "orbit": 78
+            "orbit": 78,
+            "textDistance":7.8
         },
         {
             "name": "Jupiter",
@@ -43,7 +47,8 @@
             "orbitRotation": 0.002,
             "size": 12,
             "texture": "/assets/texture/jupiter.jpg",
-            "orbit": 100
+            "orbit": 100,
+            "textDistance":15.8
         },
         {
             "name": "Saturn",
@@ -52,7 +57,8 @@
             "orbitRotation": 0.0009,
             "size": 10,
             "texture": "/assets/texture/saturn.jpg",
-            "orbit": 138
+            "orbit": 138,
+            "textDistance":13.8
         },
         {
             "name": "Uranus",
@@ -61,7 +67,8 @@
             "orbitRotation": 0.0004,
             "size": 7,
             "texture": "/assets/texture/uranus.jpg",
-            "orbit": 176
+            "orbit": 176,
+            "textDistance":10.8
         },
         {
             "name": "Neptune",
@@ -70,7 +77,8 @@
             "orbitRotation": 0.0001,
             "size": 7,
             "texture": "/assets/texture/neptune.jpg",
-            "orbit": 200
+            "orbit": 200,
+            "textDistance":10.8
         }
     ]
 }

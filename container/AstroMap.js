@@ -8,30 +8,10 @@ import * as THREE from 'three';
 import Orbit from '@/components/orbit';
 import Planet from '@/components/planet/index.js';
 import Stars from '@/components/stars/index.js';
-
+import {BlackBackground} from '@/components/background/index.js';
 
 // Planet Data
 import Planets from '@/mocks/planets.json';
-
-function BlackBackgroundTexture() {
-    const { scene } = useThree();
-
-    const textureLoader = new THREE.CubeTextureLoader();
-    const starsTexture = textureLoader.load([
-        '/assets/texture/stars-2.jpg', '/assets/texture/stars-2.jpg', '/assets/texture/stars-2.jpg',
-        '/assets/texture/stars-2.jpg', '/assets/texture/stars-2.jpg', '/assets/texture/stars-2.jpg'
-    ]);
-    scene.background = starsTexture;
-
-    return null;
-}
-function BlackBackground() {
-    const { scene } = useThree();
-
-    scene.background = new THREE.Color(0x000000); // Siyah renk kodu
-
-    return null;
-}
 
 export default function Astro() {
     return (

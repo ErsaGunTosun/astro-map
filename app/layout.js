@@ -7,11 +7,18 @@ export const metadata = {
   description: 'Astro Map is an interactive astronomy application that allows you to embark on a journey into the depths of the sky',
 }
 
+import Headers from '@/components/header'
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={inter.className}>
       <body>
-        {children}
+        <header>
+          <Headers />
+        </header>
+        <main>
+          {children}
+        </main>
       </body>
     </html>
   )
