@@ -12,10 +12,13 @@ export default function Header() {
                     </div>
                     <div className='flex space-x-4'>
                         <Link href='/' className='text-white hover:text-gray-300'>
-                            Planets
+                            <span className='mr-1'>·</span>Solar System
                         </Link>
                         <Link href='/' className='text-white hover:text-gray-300'>
-                            Support Pluto
+                            <span className='mr-1'>·</span>Planets
+                        </Link>
+                        <Link href='/' className='text-white hover:text-gray-300'>
+                            <span className='mr-1'>·</span>Support Pluto
                         </Link>
                     </div>
                 </nav>

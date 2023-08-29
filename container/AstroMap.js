@@ -1,27 +1,27 @@
 'use client';
-import { Canvas, useThree } from "@react-three/fiber";
+import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import UUID from "uniq-id";
-import * as THREE from 'three';
 
 //Components
 import Orbit from '@/components/orbit';
 import Planet from '@/components/planet/index.js';
 import Stars from '@/components/stars/index.js';
-import {BlackBackground} from '@/components/background/index.js';
+import { BlackBackground } from '@/components/background/index.js';
 
 // Planet Data
 import Planets from '@/mocks/planets.json';
 
+
 export default function Astro() {
     return (
         <div className="absolute w-full h-full z-0">
-            <Canvas camera={{ fov: 45, position: [-135, 140, 300] }}  >
+
+            <Canvas camera={{ fov: 45, position: [-300, 200, 300] }} >
                 <OrbitControls> </OrbitControls>
                 <BlackBackground />
                 <Stars />
-                <ambientLight intensity={0.7} />
-
+                <ambientLight intensity={0.7} />       
                 <Planet
                     name={'Sun'}
                     size={16}
