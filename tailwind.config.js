@@ -17,6 +17,12 @@ module.exports = {
         '2.5': '0.03',
       }
     },
+    screens: {
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'mdx': '900px',
+    }
   },
   plugins: [],
 }

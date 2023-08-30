@@ -17,7 +17,7 @@ export default function Astro() {
     return (
         <div className="absolute w-full h-full z-0">
 
-            <Canvas camera={{ fov: 45, position: [-300, 200, 300] }} >
+            <Canvas camera={{ position: [-300, 200, 300] }} >
                 <OrbitControls> </OrbitControls>
                 <BlackBackground />
                 <Stars />

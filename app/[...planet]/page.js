@@ -3,7 +3,6 @@ import Link from 'next/link'
 
 import Header from '@/components/header'
 import { BlackBackgroundCanvas } from '@/components/background'
-import PlanetContainer from '@/container/planets'
 import PlanetCanvas from '@/components/planetCanvas'
 
 export default function Planet({ props }) {
@@ -28,17 +27,13 @@ export default function Planet({ props }) {
     <>
       <BlackBackgroundCanvas />
 
-      <header>
-        <Header Status={'w-full p-4'} />
-      </header>
-
-      <main>
+      <Header  />
         <div className='absolute text-white z-40  w-full h-fit justify-center flex '>
           <div className='bg-white bg-opacity-2.5 container h-full px-5'>
             <div className='flex flex-col my-5 text-sm md:text-xl'>
-              
+
               <div>
-                <PlanetCanvas planetName={'Jupiter'} />
+                <PlanetCanvas planetName={'Mercury'} />
                 <h1 className='text-5xl text-center font-bold'>{planet.planet}</h1>
                 <p className='mt-3'>{planet.description}</p>
               </div>
@@ -105,8 +100,6 @@ export default function Planet({ props }) {
 
           </div>
         </div>
-      </main>
-
     </>
   )
 }
