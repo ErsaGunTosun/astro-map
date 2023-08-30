@@ -19,7 +19,7 @@ export default function PlanetCanvas({ planetName }) {
                     Planets.results.map((planet) => {
                         if (planet.name == planetName) {
                             return (
-                                <Canvas camera={{ fov: 45, position: [1, 1, planet.size * 3] }} >
+                                <Canvas key={UUID(5)} camera={{ fov: 45, position: [1, 1, planet.size * 3] }} >
                                     <OrbitControls />
                                     <ambientLight intensity={0.5} />
                                     {
