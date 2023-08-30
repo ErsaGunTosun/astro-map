@@ -1,5 +1,8 @@
+'use client';
 import * as THREE from 'three';
 import { useThree } from '@react-three/fiber';
+import { Canvas } from "@react-three/fiber";
+import Stars from '../stars/';
 
 function BlackBackgroundTexture() {
     const { scene } = useThree();
@@ -19,7 +22,20 @@ function BlackBackground() {
     return null;
 }
 
+function BlackBackgroundCanvas() {
+    return (
+        <div className="absolute w-full h-full z-0">
+            <Canvas camera={{ fov: 45, position: [-300, 200, 300] }} >
+                <BlackBackground />
+                <Stars />
+                <ambientLight intensity={0.7} />
+            </Canvas>
+        </div>
+    )
+}
+
 export {
     BlackBackground,
-    BlackBackgroundTexture
+    BlackBackgroundTexture,
+    BlackBackgroundCanvas
 }

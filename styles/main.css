@@ -5,14 +5,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
 
 html,
-body {
+body,
+#root {
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    overflow-y: scroll;
+    overflow-x: hidden;
     font-family: 'Space Mono', monospace !important;
     background-color: black !important;
 
-    -webkit-user-select: none !important; /* Safari */
-    -ms-user-select: none !important; /* IE 10 and IE 11 */
-    user-select: none !important; /* Standard syntax */
+    -webkit-user-select: none !important;
+    /* Safari */
+    -ms-user-select: none !important;
+    /* IE 10 and IE 11 */
+    user-select: none !important;
+    /* Standard syntax */
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 1px;
 }

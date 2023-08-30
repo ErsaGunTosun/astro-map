@@ -1,7 +1,7 @@
 import { TextureLoader } from 'three/src/loaders/TextureLoader'
 import { useFrame, useLoader, useThree } from "@react-three/fiber";
 import { useRef, useState } from 'react'
-import { Text} from "@react-three/drei";
+import { Text } from "@react-three/drei";
 
 const calculatePlanetPositions = ({ angularSpeed }) => {
     const referenceDate = new Date('2023-06-06T23:00:00');
@@ -16,9 +16,7 @@ const calculatePlanetPositions = ({ angularSpeed }) => {
     return { x, y, z };
 };
 
-
-
-export default function Planet({ name, size, orbitRotation, selftRotation, distance, texture, textDistance }) {
+export default function Planet({ name, size, orbitRotation, selftRotation, distance, texture, textDistance, isSolo }) {
     const [textPosition, setTextPosition] = useState([0, 0, 0]);
     const [textRotation, setTextRotation] = useState([0, 0, 0]);
     const [show, setShow] = useState(false);
@@ -43,15 +41,23 @@ export default function Planet({ name, size, orbitRotation, selftRotation, dista
     const planetTexture = useLoader(TextureLoader, texture)
     return (
         <>
-            <mesh
-                onPointerOver={showText}
-                onPointerOut={closeText}
-                position={[distance, 0, 0]} ref={planetRef} >
-                <sphereGeometry args={[size, 30, 30]} />
-                <meshStandardMaterial map={planetTexture} />
-
-
-            </mesh >
+            {
+                isSolo
+                    ?
+                    <mesh
+                        position={[distance, 0, 0]} ref={planetRef} >
+                        <sphereGeometry args={[size, 30, 30]} />
+                        <meshStandardMaterial map={planetTexture} />
+                    </mesh >
+                    :
+                    <mesh
+                        onPointerOver={showText}
+                        onPointerOut={closeText}
+                        position={[distance, 0, 0]} ref={planetRef} >
+                        <sphereGeometry args={[size, 30, 30]} />
+                        <meshStandardMaterial map={planetTexture} />
+                    </mesh >
+            }
             {
                 show
                     ?
