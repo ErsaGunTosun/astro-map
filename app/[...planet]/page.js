@@ -7,9 +7,9 @@ import Footer from '@/components/footer'
 import NotFound from './not-found';
 
 const getPlanetData = async (planet) => {
-  const res = await axios.get(`http://127.0.0.1:3000/api/planets/${planet}`);
+  const res = await axios.get(`${process.env.API_URL}/api/planets/${planet}`);
   return res.data.results;
-}
+} 
 
 export default async function Planet({ params }) {
   const planetsName = ['mercury', 'venus', 'earth', 'mars', 'jupiter', 'saturn', 'uranus', 'neptune'];
