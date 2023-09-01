@@ -1,0 +1,409 @@
+import { NextResponse } from "next/server"
+
+const PlanetData = {
+    results: [
+        {
+            name: "mercury",
+            distance: 28,
+            selfRotation: 0.004,
+            orbitRotation: 0.04,
+            size: 3.2,
+            texture: "/assets/texture/mercury.jpg",
+            orbit: 28,
+            textDistance: 7,
+            description: {
+                planet: "Mercury",
+                description: "Mercury is an intriguing celestial body located in the Solar System and is the closest planet to the Sun. On this page, you can find detailed information about Mercury's internal structure, rotation speed, orbital diameter, orbital period, direction, satellites, and its discovery.",
+                sections: [
+                    {
+                        title: "basicFeatures",
+                        type: "list",
+                        content: {
+                            radius: "2,439.7 km",
+                            surfaceTemperature: "-173°C to 427°C",
+                            averageDistance: "57.9 million km",
+                            orbitalPeriod: "88 Earth days",
+                            rotationPeriod: "59 Earth days",
+                            orbitalDiameter: "91,700,000 km",
+                            rotationSpeed: "Approximately 10.89 km/s"
+                        }
+                    },
+                    {
+                        title: "Internal Structure and Features",
+                        type: "div",
+                        content: "Mercury's internal structure primarily consists of heavy elements like iron and nickel. The core occupies about 42% of the planet's radius, contributing to the formation of its magnetic field. The surface is filled with craters and experiences substantial temperature variations due to its lack of a significant atmosphere."
+                    },
+                    {
+                        title: "Rotation Speed and Direction",
+                        type: "div",
+                        content: "Mercury is a slow-rotating planet, with a rotation period much longer compared to other planets in the Solar System. A day on Mercury (one rotation) takes approximately 59 Earth days. Additionally, Mercury rotates in the opposite direction, meaning one side faces the Sun."
+                    },
+                    {
+                        title: "Moons and Discovery",
+                        type: "div",
+                        content: "Mars has no known natural satellites. However, the American Mariner 10 spacecraft closely passed by Mercury three times in 1974, capturing detailed photographs. These images provided valuable insights into the planet's surface. Subsequently, the MESSENGER (MErcury Surface, Space ENvironment, GEochemistry, and Ranging) spacecraft visited Mercury in 2004, collecting further data."
+                    },
+                    {
+                        title: "Discovery Date",
+                        type: "div",
+                        content: "Mars has been known since ancient times. However, more detailed observations began with the invention of telescopes. One of the astronomers who first observed surface details of Mercury was Giovanni Domenico Cassini in the 17th century. Modern space explorations were carried out by the Mariner 10 and MESSENGER spacecrafts as mentioned above."
+                    }
+                ]
+            }
+        },
+        {
+            name: "venus",
+            distance: 44,
+            selfRotation: 0.002,
+            orbitRotation: 0.015,
+            size: 5.8,
+            texture: "/assets/texture/venus.jpg",
+            orbit: 44,
+            textDistance: 9.6,
+            description: {
+                planet: "Venus",
+                description: "Venus is a captivating planet known for its similarities to Earth in terms of size and composition, although its atmosphere is notably different. This page provides detailed information about Venus's internal structure, rotation speed, orbital diameter, orbital period, direction, satellites, and its discovery.",
+                sections: [
+                    {
+                        title: "Basic Features",
+                        type: "list",
+                        content: {
+                            radius: "6,051.8 km",
+                            surfaceTemperature: "462°C on average",
+                            averageDistance: "108.2 million km",
+                            orbitalPeriod: "225 Earth days",
+                            rotationPeriod: "243 Earth days (retrograde)",
+                            orbitalDiameter: "108,200,000 km",
+                            rotationSpeed: "4.1 km/h"
+                        }
+                    },
+                    {
+                        title: "Internal Structure and Features",
+                        type: "div",
+                        content: "Venus's internal structure includes a rocky mantle and metallic core. Its thick atmosphere is composed mainly of carbon dioxide with clouds of sulfuric acid, creating a strong greenhouse effect. This leads to extremely high surface temperatures and atmospheric pressure."
+                    },
+                    {
+                        title: "Rotation Speed and Direction",
+                        type: "div",
+                        content: "Venus has an unusual rotation that is retrograde, meaning it rotates in the opposite direction to most other planets. Its rotation period is longer than its orbital period, resulting in days on Venus being longer than its years."
+                    },
+                    {
+                        title: "Moons and Discovery",
+                        type: "div",
+                        content: "Venus has no natural satellites. Its bright appearance in the sky made it easily visible to ancient civilizations, and it was often referred to as the 'Morning Star' or the 'Evening Star'. Detailed observations of Venus's phases and surface details were made possible with telescopes."
+                    },
+                    {
+                        title: "Discovery Date",
+                        type: "div",
+                        content: "Venus has been known since prehistoric times due to its prominent presence in the night sky. The first telescopic observations in the early 17th century revealed its phases and indicated its rocky nature. Modern space missions have further explored Venus's atmosphere and surface."
+                    }
+                ]
+            }
+        },
+        {
+            name: "earth",
+            distance: 62,
+            selfRotation: 0.02,
+            orbitRotation: 0.01,
+            size: 6,
+            texture: "/assets/texture/earth.jpg",
+            orbit: 62,
+            textDistance: 9.8,
+            description: {
+                planet: "Earth",
+                description: "Earth is a captivating planet known for its similarities to Venus in terms of size and composition, although its atmosphere is notably different. This page provides detailed information about Earth's internal structure, rotation speed, orbital diameter, orbital period, direction, satellites, and its discovery.",
+                sections: [
+                    {
+                        title: "Basic Features",
+                        type: "list",
+                        content: {
+                            radius: "6,371 km",
+                            surfaceTemperature: "-89.2°C to 56.7°C",
+                            averageDistance: "149.6 million km from the Sun",
+                            orbitalPeriod: "365.24 days",
+                            rotationPeriod: "24 hours",
+                            orbitalDiameter: "299,792,458 km",
+                            rotationSpeed: "1670 km/h at the equator"
+                        }
+                    },
+                    {
+                        title: "Internal Structure and Features",
+                        type: "div",
+                        content: "Earth's internal structure includes a solid inner core, liquid outer core, mantle, and crust. It has a diverse range of ecosystems and habitats, making it the only known planet to support life."
+                    },
+                    {
+                        title: "Rotation Speed and Direction",
+                        type: "div",
+                        content: "Earth has an unusual rotation that is counterclockwise, completing one rotation every 24 hours. This rotation is responsible for the cycle of day and night, as well as various atmospheric and oceanic patterns."
+                    },
+                    {
+                        title: "Moons and Discovery",
+                        type: "div",
+                        content: "Earth has one natural satellite, the Moon. The Moon's gravitational influence causes tides and has played a significant role in Earth's history and development. Earth's suitability for life and its unique features were observed over centuries."
+                    },
+                    {
+                        title: "Discovery Date",
+                        type: "div",
+                        content: "Earth has been known since prehistoric times due to its prominent presence in the night sky. The first telescopic observations in the early 17th century revealed its phases and indicated its rocky nature. Modern space missions have further explored Earth's atmosphere and surface."
+                    }
+                ]
+            }
+        },
+        {
+            name: "mars",
+            distance: 78,
+            selfRotation: 0.018,
+            orbitRotation: 0.008,
+            size: 4,
+            texture: "/assets/texture/mars.jpg",
+            orbit: 78,
+            textDistance: 7.8,
+            description: {
+                planet: "Mars",
+                description: "Mars is often referred to as the 'Red Planet' and has captured human imagination for centuries. This page provides detailed information about Mars's internal structure, rotation speed, orbital diameter, orbital period, moons, and its potential for past or present life.",
+                sections: [
+                    {
+                        title: "Basic Features",
+                        type: "list",
+                        content: {
+                            radius: "3,389.5 km",
+                            surfaceTemperature: "-87°C to -5°C on average",
+                            averageDistance: "227.9 million km from the Sun",
+                            orbitalPeriod: "687 Earth days",
+                            rotationPeriod: "24.6 hours",
+                            orbitalDiameter: "498,000,000 km",
+                            rotationSpeed: "866.2 km/h at the equator"
+                        }
+                    },
+                    {
+                        title: "Internal Structure and Features",
+                        type: "div",
+                        content: "Mars has a core composed of iron and sulfur, a rocky mantle, and a thin atmosphere primarily consisting of carbon dioxide. It features a diverse terrain with valleys, canyons, and the largest volcano and canyon in the Solar System."
+                    },
+                    {
+                        title: "Rotation Speed and Direction",
+                        type: "div",
+                        content: "Mars rotates on its axis at a similar rate to Earth, resulting in days and nights of comparable length. The planet's rotation direction is counterclockwise, similar to most other planets."
+                    },
+                    {
+                        title: "Moons and Discovery",
+                        type: "div",
+                        content: "Mars has two small natural satellites, Phobos and Deimos. These moons were discovered in 1877 by American astronomer Asaph Hall. The reddish appearance of Mars and its varying brightness made it a noticeable object in the night sky, leading to its early observations."
+                    },
+                    {
+                        title: "Potential for Life",
+                        type: "div",
+                        content: "Mars has long intrigued scientists due to its potential to support life. While no direct evidence of past or present life has been found, the presence of water ice, seasonal changes, and the history of liquid water flowing on its surface suggest conditions suitable for microbial life may have existed in the past."
+                    }
+                ]
+            }
+        },
+        {
+            name: "jupiter",
+            distance: 100,
+            selfRotation: 0.04,
+            orbitRotation: 0.002,
+            size: 12,
+            texture: "/assets/texture/jupiter.jpg",
+            orbit: 100,
+            textDistance: 15.8,
+            description: {
+                planet: "Jupiter",
+                description: "Jupiter, the largest planet in the Solar System, is known for its immense size and iconic Great Red Spot. This page provides detailed information about Jupiter's internal structure, rotation speed, orbital diameter, orbital period, moons, and its unique features.",
+                sections: [
+                    {
+                        title: "Basic Features",
+                        type: "list",
+                        content: {
+                            radius: "69,911 km",
+                            surfaceTemperature: "-145°C on average",
+                            averageDistance: "778.5 million km from the Sun",
+                            orbitalPeriod: "11.9 Earth years",
+                            rotationPeriod: "9.9 hours",
+                            orbitalDiameter: "13,165,000,000 km",
+                            rotationSpeed: "45,000 km/h at the equator"
+                        }
+                    },
+                    {
+                        title: "Internal Structure and Features",
+                        type: "div",
+                        content: "Jupiter's composition mainly consists of hydrogen and helium, and it lacks a solid surface. Its core is thought to be composed of heavier elements, while its iconic bands and storms are visible on its surface. The Great Red Spot is a prominent feature."
+                    },
+                    {
+                        title: "Rotation Speed and Direction",
+                        type: "div",
+                        content: "Jupiter is a fast-rotating planet, completing one rotation in less than 10 hours. The rapid rotation causes its equator to be noticeably wider than its polar diameter. Jupiter rotates counterclockwise."
+                    },
+                    {
+                        title: "Moons and Discovery",
+                        type: "div",
+                        content: "Jupiter has a vast number of moons, with the four largest known as the Galilean moons: Io, Europa, Ganymede, and Callisto. These moons were discovered by Galileo Galilei in 1610, revolutionizing our understanding of celestial motion."
+                    },
+                    {
+                        title: "Unique Features",
+                        type: "div",
+                        content: "Jupiter's immense size and powerful gravitational influence play a significant role in shaping the Solar System. Its strong magnetic field generates radiation belts and auroras. The planet's vast collection of moons and rings adds to its distinctive characteristics."
+                    }
+                ]
+            }
+        },
+        {
+            name: "saturn",
+            distance: 138,
+            selfRotation: 0.038,
+            orbitRotation: 0.0009,
+            size: 10,
+            texture: "/assets/texture/saturn.jpg",
+            orbit: 138,
+            textDistance: 13.8,
+            description: {
+                planet: "Saturn",
+                description: "Saturn, recognized by its stunning ring system, is a remarkable planet in the Solar System. This page provides detailed information about Saturn's internal structure, rotation speed, orbital diameter, orbital period, moons, and its iconic rings.",
+                sections: [
+                    {
+                        title: "Basic Features",
+                        type: "list",
+                        content: {
+                            radius: "58,232 km",
+                            surfaceTemperature: "-178°C on average",
+                            averageDistance: "1.4 billion km from the Sun",
+                            orbitalPeriod: "29.5 Earth years",
+                            rotationPeriod: "10.7 hours",
+                            orbitalDiameter: "23,450,000,000 km",
+                            rotationSpeed: "35,500 km/h at the equator"
+                        }
+                    },
+                    {
+                        title: "Internal Structure and Features",
+                        type: "div",
+                        content: "Saturn consists primarily of hydrogen and helium, with a smaller rocky core. Its most distinguishing feature is its elaborate ring system, composed of countless icy particles. These rings are divided into various sections and are visible from Earth with a telescope."
+                    },
+                    {
+                        title: "Rotation Speed and Direction",
+                        type: "div",
+                        content: "Saturn's rapid rotation causes it to be oblate, meaning its equator is wider than its polar diameter. The planet rotates counterclockwise on its axis. Despite its large size, its low density would allow it to float on water."
+                    },
+                    {
+                        title: "Moons and Discovery",
+                        type: "div",
+                        content: "Saturn boasts numerous moons, with Titan being its largest and most notable moon. Titan has a thick atmosphere and is the only moon in the Solar System with a substantial atmosphere. Saturn's rings were first observed by Galileo Galilei in 1610, while further exploration revealed their true nature."
+                    },
+                    {
+                        title: "Iconic Rings",
+                        type: "div",
+                        content: "Saturn's rings are an iconic feature. They consist of ice particles ranging from dust-sized to several meters in diameter. These rings are not solid; instead, they are made up of countless individual particles that orbit Saturn."
+                    }
+                ]
+            }
+        },
+        {
+            name: "uranus",
+            distance: 176,
+            selfRotation: 0.03,
+            orbitRotation: 0.0004,
+            size: 7,
+            texture: "/assets/texture/uranus.jpg",
+            orbit: 176,
+            textDistance: 10.8,
+            description: {
+                planet: "Uranus",
+                description: "Uranus, with its distinct pale blue color and unique rotational axis, is a captivating planet in the Solar System. This page provides detailed information about Uranus's internal structure, rotation speed, orbital diameter, orbital period, moons, and its intriguing characteristics.",
+                sections: [
+                    {
+                        title: "Basic Features",
+                        type: "list",
+                        content: {
+                            radius: "25,362 km",
+                            surfaceTemperature: "-224°C on average",
+                            averageDistance: "2.9 billion km from the Sun",
+                            orbitalPeriod: "84 Earth years",
+                            rotationPeriod: "17.2 hours",
+                            orbitalDiameter: "37,000,000,000 km",
+                            rotationSpeed: "9,641 km/h at the equator"
+                        }
+                    },
+                    {
+                        title: "Internal Structure and Features",
+                        type: "div",
+                        content: "Uranus consists of an icy and rocky core surrounded by layers of hydrogen and helium. Its defining feature is its axial tilt, causing it to rotate almost on its side. This unique orientation is responsible for its extreme seasons."
+                    },
+                    {
+                        title: "Rotation Speed and Direction",
+                        type: "div",
+                        content: "Uranus rotates counterclockwise, but its rotational axis is nearly parallel to its orbital plane. This axial tilt leads to extreme variations in sunlight and darkness during its 84-year orbit."
+                    },
+                    {
+                        title: "Moons and Discovery",
+                        type: "div",
+                        content: "Uranus has numerous moons, with its five largest being Miranda, Ariel, Umbriel, Titania, and Oberon. These moons were discovered after the invention of telescopes, with Titania and Oberon being observed by William Herschel in 1787."
+                    },
+                    {
+                        title: "Unique Characteristics",
+                        type: "div",
+                        content: "Uranus's axial tilt is one of its most intriguing features. This tilt leads to extreme seasons lasting for decades, as well as unusual day-night cycles. Its pale blue color is due to the presence of methane in its upper atmosphere."
+                    }
+                ]
+            }
+        },
+        {
+            name: "neptune",
+            distance: 200,
+            selfRotation: 0.032,
+            orbitRotation: 0.0001,
+            size: 7,
+            texture: "/assets/texture/neptune.jpg",
+            orbit: 200,
+            textDistance: 10.8,
+            description: {
+                planet: "Neptune",
+                description: "Neptune, the farthest known planet from the Sun, is a fascinating ice giant with a striking blue hue. This page provides detailed information about Neptune's internal structure, rotation speed, orbital diameter, orbital period, moons, and its captivating characteristics.",
+                sections: [
+                    {
+                        title: "Basic Features",
+                        type: "list",
+                        content: {
+                            radius: "24,622 km",
+                            surfaceTemperature: "-214°C on average",
+                            averageDistance: "4.5 billion km from the Sun",
+                            orbitalPeriod: "165 Earth years",
+                            rotationPeriod: "16.1 hours",
+                            orbitalDiameter: "74,000,000,000 km",
+                            rotationSpeed: "9,719 km/h at the equator"
+                        }
+                    },
+                    {
+                        title: "Internal Structure and Features",
+                        type: "div",
+                        content: "Neptune consists of a rocky core surrounded by layers of icy materials and gases. Its blue color comes from methane in its atmosphere, which absorbs red light and reflects blue light. Neptune also boasts a complex system of rings."
+                    },
+                    {
+                        title: "Rotation Speed and Direction",
+                        type: "div",
+                        content: "Neptune rotates counterclockwise, similar to most other planets. However, it has the second-fastest rotation among the gas giants. Its axial tilt is considerable, leading to varied seasonal patterns."
+                    },
+                    {
+                        title: "Moons and Discovery",
+                        type: "div",
+                        content: "Neptune has several moons, with Triton being the largest. Triton is unique due to its retrograde orbit, suggesting it was captured by Neptune's gravity. Neptune's existence was predicted through mathematical calculations before it was observed by telescopes."
+                    },
+                    {
+                        title: "Unique Characteristics",
+                        type: "div",
+                        content: "Neptune's captivating blue color and dynamic weather patterns make it a subject of scientific curiosity. The planet's Great Dark Spot and the changing appearance of its atmosphere add to its intrigue."
+                    }
+                ]
+            }
+        }
+    ]
+}
+
+export async function GET(req, context) {
+   let planet = {};
+    PlanetData.results.map((item)=>{
+        if(item.name == context.params.planet)
+        {
+            planet = item;
+        }
+    })
+    return  NextResponse.json({results: planet})
+}
