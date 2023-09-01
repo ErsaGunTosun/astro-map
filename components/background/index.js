@@ -24,8 +24,8 @@ function BlackBackground() {
 
 function BlackBackgroundCanvas() {
     return (
-        <div className="absolute w-full h-full z-0">
-            <Canvas camera={{ fov: 45, position: [-300, 200, 300] }} >
+        <div className="absolute w-full h-full -z-50">
+            <Canvas  camera={{ fov: 45, position: [-300, 200, 300] }}>
                 <BlackBackground />
                 <Stars />
                 <ambientLight intensity={0.7} />

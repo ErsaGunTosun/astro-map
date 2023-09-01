@@ -14,7 +14,7 @@ module.exports = {
       },
       backgroundOpacity:
       {
-        '2.5': '0.03',
+        '3': '0.03',
       }
     },
     screens: {

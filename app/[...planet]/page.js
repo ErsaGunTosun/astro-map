@@ -1,93 +1,78 @@
-'use client';
-import React, { useEffect, useState } from 'react'
-import Link from 'next/link'
+import axios from 'axios';
 
-import Header from '@/components/header'
 import { BlackBackgroundCanvas } from '@/components/background'
 import PlanetCanvas from '@/components/planetCanvas'
+import Header from '@/components/header'
+import Footer from '@/components/footer'
+import NotFound from './not-found';
 
-import PlanetData from '@/mocks/planets.json';
+const getPlanetData = async (planet) => {
+  const res = await axios.get(`http://127.0.0.1:5000/api/data/${planet}`);
+  return res.data;
+}
 
-
-export default function Planet({ params }) {
+export default async function Planet({ params }) {
   const planetsName = ['mercury', 'venus', 'earth', 'mars', 'jupiter', 'saturn', 'uranus', 'neptune'];
-  const [planet, setPlanet] = useState({});
 
-  useEffect(() => {
-    PlanetData.results.map((planet) => {
-      if (planet.name == params.planet) {
-        setPlanet(planet.description);
-      }
-    })
-  }, [PlanetData]);
+  if (planetsName.find((planet) => planet == params.planet) == undefined) {
+    return <NotFound />
+  }
+  
+  const planet = await getPlanetData(params.planet)
 
   return (
     <>
-      <BlackBackgroundCanvas />
-
       <Header />
-      <div className='absolute text-white z-40  w-full h-fit justify-center flex '>
-        <div className='bg-white bg-opacity-2.5 container h-full px-5'>
+
+      <div className='absolute text-white z-0 w-full h-fit justify-center flex flex-col items-center bg-transparent'>
+        <BlackBackgroundCanvas />
+
+        {/** Content div */}
+        <div className='bg-white bg-opacity-3 container h-full px-5'>
           <div className='flex flex-col my-5 text-sm md:text-xl'>
-
             <div>
-              <PlanetCanvas planetName={params.planet} />
-              <h1 className='text-5xl text-center font-bold'>{planet.planet}</h1>
-              <p className='mt-3'>{planet.description}</p>
+              <PlanetCanvas planet={planet} />
+              <h1 className='text-5xl text-center font-bold'>{planet?.description.planet}</h1>
+              <p className='mt-3'>{planet?.description.description}</p>
             </div>
 
-            <div className='text-start w-full my-2'>
-
-              <div className='inline-block'>
-                <h2 className='text-3xl font-bold'>Basic Features</h2>
-                <hr className='mb-4 w-full' />
-              </div>
-
-              <ul className='text-start list-disc ps-5 '>
-                {
-                  planet.basicFeatures
-                    ?
-                    Object.keys(planet.basicFeatures).map((key) => {
-                      return (
-
-                        <li key={key}>{key.split(/(?=[A-Z])/).join(' ').charAt(0).toUpperCase() + key.split(/(?=[A-Z])/).join(' ').slice(1)}: {planet.basicFeatures[key]}</li>
-                      )
-                    })
-                    : null
-                }
-              </ul>
-            </div>
-            
             {
-              planet.sections
-                ?
+              planet?.description.sections ?
                 (
-                  Object.keys(planet.sections).map((key) => {
-                    return (
-                      <div className='text-start my-2' key={key}>
-                        <div className='inline-block'>
-                          <h2 className='text-3xl font-bold'>{key.split(/(?=[A-Z])/).join(' ').charAt(0).toUpperCase() + key.split(/(?=[A-Z])/).join(' ').slice(1)}</h2>
-                          <hr className='mb-4 w-full' />
+                  Object.keys(planet?.description.sections).map((key) => {
+
+                    if (planet?.description.sections[key].type == 'list') {
+                      return (
+                        <div className='text-start w-full my-2'>
+                          <h2 className='text-3xl font-bold'>{planet?.description.sections[key].title.split(/(?=[A-Z])/).join(' ').charAt(0).toUpperCase() + planet?.description.sections[key].title.split(/(?=[A-Z])/).join(' ').slice(1)}</h2>
+                          <ul className='text-start list-disc ps-5 '>
+                            {Object.keys(planet?.description.sections[key].content).map((item) => {
+                              return (
+                                <li key={item}>{item.split(/(?=[A-Z])/).join(' ').charAt(0).toUpperCase() + item.split(/(?=[A-Z])/).join(' ').slice(1)}: {planet?.description.sections[key].content[item]}</li>
+                              )
+                            })
+                            }
+                          </ul>
                         </div>
-                        <p className=''>{planet.sections[key]}</p>
-                      </div>
-                    )
+                      )
+                    }
+                    else if (planet?.description.sections[key].type == 'div') {
+                      return (
+                        <div className='text-start my-2' key={planet?.description.sections[key].title}>
+                          <h2 className='text-3xl font-bold'>{planet?.description.sections[key].title.split(/(?=[A-Z])/).join(' ').charAt(0).toUpperCase() + planet?.description.sections[key].title.split(/(?=[A-Z])/).join(' ').slice(1)}</h2>
+                          <p className=''>{planet?.description.sections[key].content}</p>
+                        </div>
+                      )
+                    }
                   })
                 )
                 : null
             }
-
-
-            <footer className='flex justify-center items-center mt-5 mb-2 bg-transparent'>
-              Made with 👾 by&nbsp;
-              <Link href="https://twitter.com/ersaguntosun" target="_blank">
-                ErsaGun
-              </Link>
-            </footer>
-
           </div>
-
         </div>
+
+        <Footer />
+
       </div >
     </>
   )

@@ -54,10 +54,10 @@ export default function Header({Status}) {
                         <Link href='/' className='text-white hover:text-gray-300'>
                             <span className='mr-1'>·</span>Solar System
                         </Link>
-                        <Link href='/' className='text-white hover:text-gray-300'>
+                        <Link href='/planets' className='text-white hover:text-gray-300'>
                             <span className='mr-1'>·</span>Planets
                         </Link>
-                        <Link href='/' className='text-white hover:text-gray-300'>
+                        <Link href='/support-pluto' className='text-white hover:text-gray-300'>
                             <span className='mr-1'>·</span>Support Pluto
                         </Link>
                     </div>
@@ -90,10 +90,10 @@ export default function Header({Status}) {
                                 <Link href='/' className='block basis-1  text-3xl mb-2 text-white hover:text-gray-300'>
                                     Solar System
                                 </Link>
-                                <Link href='/' className='block basis-1  text-3xl mb-2 text-white hover:text-gray-300'>
+                                <Link href='/planets' className='block basis-1  text-3xl mb-2 text-white hover:text-gray-300'>
                                     Planets
                                 </Link>
-                                <Link href='/' className='block basis-1  text-3xl mb-2 text-white hover:text-gray-300'>
+                                <Link href='/support-pluto' className='block basis-1  text-3xl mb-2 text-white hover:text-gray-300'>
                                     Support Pluto
                                 </Link>
                             </div>
