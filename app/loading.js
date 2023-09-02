@@ -4,7 +4,7 @@ import { PiPlanetBold } from 'react-icons/pi'
 
 export default function Loading() {
     return (
-        <div className='flex flex-col w-full min-h-screen  m-0 p-0'>
+        <div className='flex flex-col w-full min-h-screen  m-0 p-0 overflow-hidden'>
             <Header />
             <main className='flex flex-1 text-sm md:text-xl text-white text-center justify-center items-center'>
 

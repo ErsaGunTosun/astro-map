@@ -1,3 +1,4 @@
+import UUID from 'uniq-id';
 import axios from 'axios';
 
 import { BlackBackgroundCanvas } from '@/components/background'
@@ -43,7 +44,7 @@ export default async function Planet({ params }) {
 
                     if (planet?.description.sections[key].type == 'list') {
                       return (
-                        <div className='text-start w-full my-2'>
+                        <div className='text-start w-full my-2' key={UUID(5)}>
                           <h2 className='text-3xl font-bold'>{planet?.description.sections[key].title.split(/(?=[A-Z])/).join(' ').charAt(0).toUpperCase() + planet?.description.sections[key].title.split(/(?=[A-Z])/).join(' ').slice(1)}</h2>
                           <ul className='text-start list-disc ps-5 '>
                             {Object.keys(planet?.description.sections[key].content).map((item) => {
@@ -58,7 +59,7 @@ export default async function Planet({ params }) {
                     }
                     else if (planet?.description.sections[key].type == 'div') {
                       return (
-                        <div className='text-start my-2' key={planet?.description.sections[key].title}>
+                        <div className='text-start my-2'  key={UUID(5)}>
                           <h2 className='text-3xl font-bold'>{planet?.description.sections[key].title.split(/(?=[A-Z])/).join(' ').charAt(0).toUpperCase() + planet?.description.sections[key].title.split(/(?=[A-Z])/).join(' ').slice(1)}</h2>
                           <p className=''>{planet?.description.sections[key].content}</p>
                         </div>
@@ -70,8 +71,6 @@ export default async function Planet({ params }) {
             }
           </div>
         </div>
-
-        <Footer />
 
       </div >
     </>
