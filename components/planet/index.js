@@ -16,7 +16,7 @@ const calculatePlanetPositions = ({ angularSpeed }) => {
     return { x, y, z };
 };
 
-export default function Planet({ name, size, orbitRotation, selftRotation, distance, texture, textDistance, isSolo }) {
+export default function Planet({ name, size, orbitRotation, selftRotation, distance, texture, textDistance, isSolo, position, isCanvas }) {
     const [textPosition, setTextPosition] = useState([0, 0, 0]);
     const [textRotation, setTextRotation] = useState([0, 0, 0]);
     const [show, setShow] = useState(false);
@@ -45,7 +45,7 @@ export default function Planet({ name, size, orbitRotation, selftRotation, dista
                 isSolo
                     ?
                     <mesh
-                        position={[distance, 0, 0]} ref={planetRef} >
+                        position={isCanvas?position:[distance,0,0]} ref={planetRef} >
                         <sphereGeometry args={[size, 30, 30]} />
                         <meshStandardMaterial map={planetTexture} />
                     </mesh >

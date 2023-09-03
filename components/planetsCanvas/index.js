@@ -7,7 +7,7 @@ import UUID from "uniq-id";
 //Components
 import Planet from '@/components/planet/index.js'
 
-export default function PlanetCanvas({ planet }) {
+export default function PlanetsCanvas({ planets }) {
     const canvasRef = useRef();
 
     return (
@@ -18,21 +18,27 @@ export default function PlanetCanvas({ planet }) {
             <div className="z-10 w-full bg-black bg-opacity-0 flex justify-center">
 
                 <div className="w-1/2 z-40 md:w-1/3 h-36 ">
-                    <Canvas ref={canvasRef} key={UUID(5)} camera={{ fov: 45, position: [1, 1, planet.size * 3] }} >
+                    <Canvas ref={canvasRef} key={UUID(5)} camera={{ fov: 45, position: [1, 1, 32] }} >
                         <OrbitControls />
                         <ambientLight intensity={0.5} />
-
-                        <Planet
-                            key={UUID(5)}
-                            name={planet.name}
-                            size={planet.size}
-                            orbitRotation={0}
-                            selftRotation={planet.selfRotation}
-                            distance={0}
-                            texture={planet.texture}
-                            textDistance={planet.textDistance}
-                            isSolo={true}
-                        />
+                        {
+                            planets.map((planet, index) => {
+                                <Planet
+                                    key={UUID(5)}
+                                    name={planet.name}
+                                    size={planet.size}
+                                    orbitRotation={0}
+                                    selftRotation={planet.selftRotation}
+                                    distance={0}
+                                    texture={planet.texture}
+                                    textDistance={planet.textDistance}
+                                    isSolo={true}
+                                    position={[0,0,0]}
+                                    isCanvas={true}
+                                />
+                            })
+                        }
+                      
 
                         <spotLight position={[10, 15, 10]} angle={0.3} />
                     </Canvas>
