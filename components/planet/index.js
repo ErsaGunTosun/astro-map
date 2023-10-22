@@ -1,9 +1,11 @@
 import { TextureLoader } from 'three/src/loaders/TextureLoader'
 import { useFrame, useLoader, useThree } from "@react-three/fiber";
 import { useRef, useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { Text } from "@react-three/drei";
 
 const calculatePlanetPositions = ({ angularSpeed }) => {
+    
     const referenceDate = new Date('2023-06-06T23:00:00');
     const currentTime = new Date();
     const timeElapsed = (currentTime - referenceDate) / (1000 * 60 * 60);
@@ -17,6 +19,7 @@ const calculatePlanetPositions = ({ angularSpeed }) => {
 };
 
 export default function Planet({ name, size, orbitRotation, selftRotation, distance, texture, textDistance, isSolo, position, isCanvas }) {
+    const router = useRouter()
     const [textPosition, setTextPosition] = useState([0, 0, 0]);
     const [textRotation, setTextRotation] = useState([0, 0, 0]);
     const [show, setShow] = useState(false);
@@ -34,9 +37,18 @@ export default function Planet({ name, size, orbitRotation, selftRotation, dista
 
     const showText = () => {
         setShow(true);
+        document.querySelector('body').style.cursor = 'pointer';
+        
     }
     const closeText = () => {
         setShow(false);
+        document.querySelector('body').style.cursor  = 'default';
+    }
+
+    const clickPlanet = () => {
+        console.log('sa');
+        document.querySelector('body').style.cursor  = 'default';
+        router.push(`/${name.toLowerCase()}`, { scroll: false });
     }
     const planetTexture = useLoader(TextureLoader, texture)
     return (
@@ -51,6 +63,7 @@ export default function Planet({ name, size, orbitRotation, selftRotation, dista
                     </mesh >
                     :
                     <mesh
+                        onClick={clickPlanet}
                         onPointerOver={showText}
                         onPointerOut={closeText}
                         position={[distance, 0, 0]} ref={planetRef} >
