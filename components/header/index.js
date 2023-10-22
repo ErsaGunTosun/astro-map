@@ -51,9 +51,6 @@ export default function Header({Status}) {
                     </div>
 
                     <div className='text-end w-auto basis-1/2 hidden mdx:block tracking-tighter space-x-4'>
-                        <Link href='/' className='text-white hover:text-gray-300'>
-                            <span className='mr-1'>·</span>Solar System
-                        </Link>
                         <Link href='/planets' className='text-white hover:text-gray-300'>
                             <span className='mr-1'>·</span>Planets
                         </Link>
@@ -87,9 +84,6 @@ export default function Header({Status}) {
                                 }
                             </p>
                             <div className='flex-row text-start'>
-                                <Link href='/' className='block basis-1  text-3xl mb-2 text-white hover:text-gray-300'>
-                                    Solar System
-                                </Link>
                                 <Link href='/planets' className='block basis-1  text-3xl mb-2 text-white hover:text-gray-300'>
                                     Planets
                                 </Link>

@@ -46,7 +46,6 @@ export default function Planet({ name, size, orbitRotation, selftRotation, dista
     }
 
     const clickPlanet = () => {
-        console.log('sa');
         document.querySelector('body').style.cursor  = 'default';
         router.push(`/${name.toLowerCase()}`, { scroll: false });
     }
