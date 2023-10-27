@@ -27,7 +27,7 @@ To get started with Astro Map, simply visit our website at [astromap-project.ver
 
 ## Contributing
 
-We welcome contributions from the community. If you'd like to contribute to Space Atlas, please follow these steps:
+We welcome contributions from the community. If you'd like to contribute to Astro Map, please follow these steps:
 
 1. Fork the repository.
 2. Create a new branch for your feature or bug fix.
