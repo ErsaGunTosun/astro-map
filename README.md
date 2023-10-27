@@ -49,7 +49,7 @@ To run this project locally, follow these steps:
    npm run dev
     ```
 3. **Create a .env File:**
-    - Duplicate the .env.example file and rename the copy to .env.
+    - Duplicate the .copy_env file and rename the copy to .env 
     - Open the .env file and add your API Url, credentials, or any sensitive information needed for the project. Ensure this file is never shared or exposed publicly.
 4. **Start and Open the Project:**
     ```bash
