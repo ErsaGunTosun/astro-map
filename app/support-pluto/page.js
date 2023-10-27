@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "@/components/header";
 import { AiFillHeart } from "react-icons/ai";
 
@@ -64,8 +64,21 @@ export default function SupportPluto() {
   const [support, setSupport] = useState(false);
 
   const chageSupport = () => {
+    localStorage.setItem('support', !support)
     setSupport(!support);
   };
+
+  useEffect(() => {
+    if(localStorage.getItem('support')){
+      setSupport(localStorage.getItem('support'))
+    }
+    else{
+      setSupport(false)
+      localStorage.setItem('support', false)
+    }
+  }
+  ,[])
+
   return (
     <>
       <Header />
