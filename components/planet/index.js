@@ -73,7 +73,6 @@ export default function Planet({
   useEffect(() => {
     if (ring) {
       const loader = new TextureLoader();
-      console.log(process.env.API_URL);
       loader.load(`${ring_texture}`, (txtr) => {
         textureRef.current = txtr;
       });

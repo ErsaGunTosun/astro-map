@@ -19,7 +19,7 @@ export default function PlanetsCanvas({ planets }) {
 
                 <div className="w-1/2 z-40 md:w-1/3 h-36 ">
                     <Canvas ref={canvasRef} key={UUID(5)} camera={{ fov: 45, position: [1, 1, 32] }} >
-                        <OrbitControls />
+                    <OrbitControls> </OrbitControls>
                         <ambientLight intensity={0.5} />
                         {
                             planets.map((planet, index) => {
@@ -34,7 +34,7 @@ export default function PlanetsCanvas({ planets }) {
                                     textDistance={planet.textDistance}
                                     isSolo={true}
                                     position={[0,0,0]}
-                                    isCanvas={true}
+                                    // isCanvas={true}
                                     ring={planet.ring}
                                     ring_texture={planet.ring_texture}
                                 />
