@@ -35,6 +35,8 @@ export default function PlanetsCanvas({ planets }) {
                                     isSolo={true}
                                     position={[0,0,0]}
                                     isCanvas={true}
+                                    ring={planet.ring}
+                                    ring_texture={planet.ring_texture}
                                 />
                             })
                         }

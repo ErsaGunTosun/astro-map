@@ -9,6 +9,8 @@ const PlanetData = {
             orbitRotation: 0.04,
             size: 3.2,
             texture: "/assets/texture/mercury.jpg",
+            ring:false,
+            ring_texture:"",
             orbit: 28,
             textDistance: 7,
             description: {
@@ -58,6 +60,8 @@ const PlanetData = {
             orbitRotation: 0.015,
             size: 5.8,
             texture: "/assets/texture/venus.jpg",
+            ring:false,
+            ring_texture:"",
             orbit: 44,
             textDistance: 9.6,
             description: {
@@ -107,6 +111,8 @@ const PlanetData = {
             orbitRotation: 0.01,
             size: 6,
             texture: "/assets/texture/earth.jpg",
+            ring:false,
+            ring_texture:"",
             orbit: 62,
             textDistance: 9.8,
             description: {
@@ -156,6 +162,8 @@ const PlanetData = {
             orbitRotation: 0.008,
             size: 4,
             texture: "/assets/texture/mars.jpg",
+            ring:false,
+            ring_texture:"",
             orbit: 78,
             textDistance: 7.8,
             description: {
@@ -205,6 +213,8 @@ const PlanetData = {
             orbitRotation: 0.002,
             size: 12,
             texture: "/assets/texture/jupiter.jpg",
+            ring:false,
+            ring_texture:"",
             orbit: 100,
             textDistance: 15.8,
             description: {
@@ -254,6 +264,8 @@ const PlanetData = {
             orbitRotation: 0.0009,
             size: 10,
             texture: "/assets/texture/saturn.jpg",
+            ring:true,
+            ring_texture:"/assets/texture/saturn_ring.png",
             orbit: 138,
             textDistance: 13.8,
             description: {
@@ -303,6 +315,8 @@ const PlanetData = {
             orbitRotation: 0.0004,
             size: 7,
             texture: "/assets/texture/uranus.jpg",
+            ring:true,
+            ring_texture:"/assets/texture/uranus_ring.png",
             orbit: 176,
             textDistance: 10.8,
             description: {
@@ -352,6 +366,8 @@ const PlanetData = {
             orbitRotation: 0.0001,
             size: 7,
             texture: "/assets/texture/neptune.jpg",
+            ring:false,
+            ring_texture:"",
             orbit: 200,
             textDistance: 10.8,
             description: {

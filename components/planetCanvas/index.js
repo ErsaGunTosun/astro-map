@@ -4,7 +4,7 @@ import { Canvas } from "@react-three/fiber";
 import React, { useRef } from "react";
 import UUID from "uniq-id";
 
-//Components
+//Components    
 import Planet from '@/components/planet/index.js'
 
 export default function PlanetCanvas({ planet }) {
@@ -32,6 +32,8 @@ export default function PlanetCanvas({ planet }) {
                             texture={planet.texture}
                             textDistance={planet.textDistance}
                             isSolo={true}
+                            ring={planet.ring}
+                            ring_texture={planet.ring_texture}
                         />
 
                         <spotLight position={[10, 15, 10]} angle={0.3} />

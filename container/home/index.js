@@ -50,6 +50,8 @@ export default function Astro() {
                             distance={planet.distance}
                             texture={planet.texture}
                             textDistance={planet.textDistance}
+                            ring={planet.ring}
+                            ring_texture={planet.ring_texture}
                         />
                     )
                 })}
