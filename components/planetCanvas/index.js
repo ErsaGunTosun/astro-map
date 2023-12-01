@@ -18,7 +18,7 @@ export default function PlanetCanvas({ planet }) {
             <div className="z-10 w-full bg-black bg-opacity-0 flex justify-center">
 
                 <div className="w-1/2 z-40 md:w-1/3 h-36">
-                    <Canvas ref={canvasRef} key={UUID(5)} camera={{ fov: 45, position: [1, 1, planet.size * 3] }} >
+                    <Canvas ref={canvasRef} key={UUID(5)} camera={{ fov: 45, position: [1, 5, planet.size * 3.1] }} >
                         <OrbitControls />
                         <ambientLight intensity={0.5} />
 
