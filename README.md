@@ -46,7 +46,6 @@ To run this project locally, follow these steps:
 2. **Start the Development Server:**
    ```bash
    npm install
-   npm run dev
     ```
 3. **Create a .env File:**
     - Create a new file named `.env` in the root directory of the project.

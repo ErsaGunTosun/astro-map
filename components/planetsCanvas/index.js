@@ -21,6 +21,8 @@ export default function PlanetsCanvas({ planets }) {
                     <Canvas ref={canvasRef} key={UUID(5)} camera={{ fov: 45, position: [1, 3, 32] }} >
                     <OrbitControls> </OrbitControls>
                         <ambientLight intensity={0.5} />
+
+                        
                         {
                             planets.map((planet, index) => {
                                 <Planet

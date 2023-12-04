@@ -3,7 +3,6 @@ import {
   useFrame,
   useLoader,
   useThree,
-  MeshStandardMaterialProps,
 } from "@react-three/fiber";
 import { useRef, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
